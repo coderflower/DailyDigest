@@ -43,7 +43,12 @@ extension CalculatorButtonItem {
         }
     }
     
-    var size: CGSize { CGSize(width: 88, height: 88) }
+    var size: CGSize {
+        if case .digit(let value) = self, value == 0 {
+            return CGSize(width: 88 * 2 + 8, height: 88)
+        }
+        return CGSize(width: 88, height: 88)
+    }
     
     var backgroundColorName: String {
         switch self {
