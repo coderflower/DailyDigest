@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    let scale: CGFloat = UIScreen.main.bounds.width / 428
 
     var body: some View {
         VStack(spacing: 12) {
@@ -15,11 +16,12 @@ struct ContentView: View {
             Text("0")
                 .font(.system(size: 76))
                 .minimumScaleFactor(0.5)
-                .padding(.trailing, 24)
+                .padding(.horizontal, 27)
                 .lineLimit(1)
                 .frame(minWidth: 0, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .trailing)
             CalculatorButtonPad().padding(.bottom)
         }
+        .scaleEffect(scale)
     }
 }
 
@@ -44,6 +46,9 @@ struct CalculatorButtonPad: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Group {
+            ContentView()
+            ContentView().previewDevice("iPhone SE (2nd generation)")
+        }
     }
 }
