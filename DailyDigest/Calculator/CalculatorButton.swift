@@ -8,20 +8,20 @@
 import SwiftUI
 
 struct CalculatorButton: View {
+
     let fontSize: CGFloat = 38
-    let title: String
-    let size: CGSize
-    let backgroundColorName: String
+    let item: CalculatorButtonItem
+    let scale: CGFloat
     let action: () -> Void
     
     var body: some View {
-        Button(action: action, label: {
-            Text(title)
+        Button(action: action) {
+            Text(item.title)
                 .font(.system(size: fontSize))
-                .foregroundColor(.white)
-                .frame(width: size.width, height: size.height)
-                .background(Color(backgroundColorName))
-                .cornerRadius(size.width * 0.5)
-        })
+                .foregroundColor(item.foregroundColor)
+                .frame(width: item.size.width * scale, height: item.size.height * scale)
+                .background(item.backgroundColor)
+                .cornerRadius(item.size.height * scale * 0.5)
+        }
     }
 }

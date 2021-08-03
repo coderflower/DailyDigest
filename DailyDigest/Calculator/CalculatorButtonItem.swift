@@ -5,7 +5,7 @@
 // Copyright © 2021 Huami inc. All rights reserved. 
 // @author 蔡龙君(cailongjun@huami.com)  
 
-import UIKit
+import SwiftUI
 
 enum CalculatorButtonItem {
     
@@ -50,11 +50,20 @@ extension CalculatorButtonItem {
         return CGSize(width: 88, height: 88)
     }
     
-    var backgroundColorName: String {
+    var backgroundColor: Color {
         switch self {
-        case .digit, .dot: return "digitBackground"
-        case .op: return "operatorBackground"
-        case .command: return "commandBackground"
+        case .digit, .dot: return Color("digitBackground")
+        case .op: return Color("operatorBackground")
+        case .command: return Color("commandBackground")
+        }
+    }
+    
+    var foregroundColor: Color {
+        switch self {
+        case .command:
+            return Color("commandForeground")
+        default:
+            return .white
         }
     }
 }

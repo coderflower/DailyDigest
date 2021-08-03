@@ -10,14 +10,14 @@ import SwiftUI
 struct CalculatorButtonRow: View {
     
     let row: [CalculatorButtonItem]
+    let scale: CGFloat
     
     var body: some View {
         HStack {
             ForEach(row, id: \.self) { item in
                 CalculatorButton(
-                    title: item.title,
-                    size: item.size,
-                    backgroundColorName: item.backgroundColorName
+                    item: item,
+                    scale: scale
                 ) {
                     print("button: \(item.title)")
                 }
@@ -28,11 +28,6 @@ struct CalculatorButtonRow: View {
 
 struct CalculatorButtonRow_Previews: PreviewProvider {
     static var previews: some View {
-        CalculatorButtonRow(row: [
-            .digit(1),
-            .digit(2),
-            .digit(3),
-            .op(.plus),
-        ])
+        CalculatorButtonRow(row: [.digit(1), .digit(2), .digit(3), .op(.plus), ], scale: 1)
     }
 }

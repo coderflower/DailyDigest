@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+
     let scale: CGFloat = UIScreen.main.bounds.width / 428
 
     var body: some View {
@@ -16,16 +17,17 @@ struct ContentView: View {
             Text("0")
                 .font(.system(size: 76))
                 .minimumScaleFactor(0.5)
-                .padding(.horizontal, 27)
+                .padding(.horizontal, 27 * scale)
                 .lineLimit(1)
                 .frame(minWidth: 0, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .trailing)
-            CalculatorButtonPad().padding(.bottom)
+            CalculatorButtonPad(scale: scale).padding(.bottom)
         }
-        .scaleEffect(scale)
     }
 }
 
 struct CalculatorButtonPad: View {
+    
+    let scale: CGFloat
     
     let pad: [[CalculatorButtonItem]] = [
         [.command(.clear), .command(.flip), .command(.percent), .op(.divide)],
@@ -38,7 +40,7 @@ struct CalculatorButtonPad: View {
     var body: some View {
         VStack(spacing: 8) {
             ForEach(pad, id: \.self) { row in
-                CalculatorButtonRow(row: row)
+                CalculatorButtonRow(row: row, scale: scale)
             }
         }
     }
