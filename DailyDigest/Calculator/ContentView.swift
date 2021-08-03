@@ -9,8 +9,36 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        HStack {
+            CalculatorButton(
+                title: "1",
+                size: CGSize(width: 88, height: 88),
+                backgroundColorName: "digitBackground"
+            ){
+                print("Button: 1")
+            }
+            CalculatorButton(
+                title: "2",
+                size: CGSize(width: 88, height: 88),
+                backgroundColorName: "digitBackground"
+            ){
+                print("Button: 2")
+            }
+            CalculatorButton(
+                title: "3",
+                size: CGSize(width: 88, height: 88),
+                backgroundColorName: "digitBackground"
+            ){
+                print("Button: 3")
+            }
+            CalculatorButton(
+                title: "+",
+                size: CGSize(width: 88, height: 88),
+                backgroundColorName: "digitBackground"
+            ){
+                print("Button: +")
+            }
+        }
     }
 }
 
