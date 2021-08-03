@@ -12,17 +12,9 @@ struct ContentView: View {
         .digit(1), .digit(2), .digit(3), .op(.plus),
     ]
     var body: some View {
-        HStack {
-            ForEach(row, id: \.self) { item in
-                CalculatorButton(
-                    title: item.title,
-                    size: item.size,
-                    backgroundColorName: item.backgroundColorName
-                ) {
-                    print("button: \(item.title)")
-                }
-            }
-        }
+        CalculatorButtonRow(row: [
+            .digit(1), .digit(2), .digit(3), .op(.plus),
+        ])
     }
 }
 
