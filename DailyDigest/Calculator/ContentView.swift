@@ -8,25 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
-
+    @State private var brain: CalculatorBrain = .left("0")
     let scale: CGFloat = UIScreen.main.bounds.width / 428
 
     var body: some View {
         VStack(spacing: 12) {
             Spacer()
-            Text("0")
+            Text(brain.output)
                 .font(.system(size: 76))
                 .minimumScaleFactor(0.5)
                 .padding(.horizontal, 27 * scale)
                 .lineLimit(1)
                 .frame(minWidth: 0, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .trailing)
-            CalculatorButtonPad(scale: scale).padding(.bottom)
+            CalculatorButtonPad(brain: $brain, scale: scale).padding(.bottom)
         }
     }
 }
 
 struct CalculatorButtonPad: View {
-    
+    @Binding var brain: CalculatorBrain
     let scale: CGFloat
     
     let pad: [[CalculatorButtonItem]] = [
@@ -40,7 +40,7 @@ struct CalculatorButtonPad: View {
     var body: some View {
         VStack(spacing: 8) {
             ForEach(pad, id: \.self) { row in
-                CalculatorButtonRow(row: row, scale: scale)
+                CalculatorButtonRow(brain: $brain, row: row, scale: scale)
             }
         }
     }
