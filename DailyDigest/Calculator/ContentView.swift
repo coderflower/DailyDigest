@@ -6,21 +6,24 @@
 // @author 蔡龙君(cailongjun@huami.com)  
 
 import SwiftUI
+import Combine
 
 struct ContentView: View {
-    @State private var brain: CalculatorBrain = .left("0")
+    
+    @ObservedObject var model = CalculatorModel()
+    
     let scale: CGFloat = UIScreen.main.bounds.width / 428
 
     var body: some View {
         VStack(spacing: 12) {
             Spacer()
-            Text(brain.output)
+            Text(model.brain.output)
                 .font(.system(size: 76))
                 .minimumScaleFactor(0.5)
                 .padding(.horizontal, 27 * scale)
                 .lineLimit(1)
                 .frame(minWidth: 0, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .trailing)
-            CalculatorButtonPad(brain: $brain, scale: scale).padding(.bottom)
+            CalculatorButtonPad(brain: $model.brain, scale: scale).padding(.bottom)
         }
     }
 }
