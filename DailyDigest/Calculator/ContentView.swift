@@ -10,10 +10,8 @@ import Combine
 
 struct ContentView: View {
     
-    @ObservedObject var model = CalculatorModel()
+    @EnvironmentObject var model: CalculatorModel
     
-    let scale: CGFloat = UIScreen.main.bounds.width / 428
-
     @State private var editingHistory = false
     
     var body: some View {
@@ -27,17 +25,15 @@ struct ContentView: View {
             Text(model.brain.output)
                 .font(.system(size: 76))
                 .minimumScaleFactor(0.5)
-                .padding(.horizontal, 27 * scale)
+                .padding(.horizontal, 27 * model.scale)
                 .lineLimit(1)
                 .frame(minWidth: 0, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .trailing)
-            CalculatorButtonPad(model: model, scale: scale).padding(.bottom)
+            CalculatorButtonPad(scale: model.scale).padding(.bottom)
         }
     }
 }
 
 struct CalculatorButtonPad: View {
-    
-    var model: CalculatorModel
     
     let scale: CGFloat
     
@@ -52,7 +48,7 @@ struct CalculatorButtonPad: View {
     var body: some View {
         VStack(spacing: 8) {
             ForEach(pad, id: \.self) { row in
-                CalculatorButtonRow(model: model, row: row, scale: scale)
+                CalculatorButtonRow(row: row)
             }
         }
     }
@@ -61,7 +57,7 @@ struct CalculatorButtonPad: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ContentView()
+            ContentView().environmentObject(CalculatorModel())
             ContentView().previewDevice("iPhone SE (2nd generation)")
         }
     }

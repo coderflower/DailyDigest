@@ -9,16 +9,15 @@ import SwiftUI
 
 struct CalculatorButtonRow: View {
 
-    var model: CalculatorModel
+    @EnvironmentObject var model: CalculatorModel
     let row: [CalculatorButtonItem]
-    let scale: CGFloat
     
     var body: some View {
         HStack {
             ForEach(row, id: \.self) { item in
                 CalculatorButton(
                     item: item,
-                    scale: scale
+                    scale: model.scale
                 ) {
                     model.apply(item)
                 }

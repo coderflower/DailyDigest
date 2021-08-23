@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import UIKit
 
 class CalculatorModel: ObservableObject {
     
@@ -14,6 +15,8 @@ class CalculatorModel: ObservableObject {
     // 历史回溯
     @Published var history: [CalculatorButtonItem] = []
  
+    let scale: CGFloat = UIScreen.main.bounds.width / 428
+
     func apply(_ item: CalculatorButtonItem) {
         brain = brain.apply(item: item)
         history.append(item)
