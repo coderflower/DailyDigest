@@ -14,6 +14,7 @@ struct ContentView: View {
     
     @State private var editingHistory = false
     
+    @State private var showingResult = false
     var body: some View {
         VStack(spacing: 12) {
             Spacer()
@@ -28,6 +29,18 @@ struct ContentView: View {
                 .padding(.horizontal, 27 * model.scale)
                 .lineLimit(1)
                 .frame(minWidth: 0, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .trailing)
+                .onTapGesture(perform: {
+                    showingResult = true
+                })
+                .alert(isPresented: $showingResult) {
+                    Alert(
+                        title: Text(model.historyDetail + model.brain.output),
+                        primaryButton: .cancel(Text("取消")),
+                        secondaryButton: .destructive(Text("复制")) {
+                            UIPasteboard.general.string = model.brain.output
+                        }
+                    )
+                }
             CalculatorButtonPad(scale: model.scale).padding(.bottom)
         }
     }
