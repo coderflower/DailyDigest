@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct CalculatorButtonRow: View {
-    @Binding var brain: CalculatorBrain
+
+    var model: CalculatorModel
     let row: [CalculatorButtonItem]
     let scale: CGFloat
     
@@ -19,7 +20,7 @@ struct CalculatorButtonRow: View {
                     item: item,
                     scale: scale
                 ) {
-                    brain = brain.apply(item: item)
+                    model.apply(item)
                 }
             }
         }

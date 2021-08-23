@@ -17,19 +17,24 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 12) {
             Spacer()
+            Button("操作履历: \(model.history.count)") {
+                debugPrint(self.model.history)
+            }
             Text(model.brain.output)
                 .font(.system(size: 76))
                 .minimumScaleFactor(0.5)
                 .padding(.horizontal, 27 * scale)
                 .lineLimit(1)
                 .frame(minWidth: 0, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .trailing)
-            CalculatorButtonPad(brain: $model.brain, scale: scale).padding(.bottom)
+            CalculatorButtonPad(model: model, scale: scale).padding(.bottom)
         }
     }
 }
 
 struct CalculatorButtonPad: View {
-    @Binding var brain: CalculatorBrain
+    
+    var model: CalculatorModel
+    
     let scale: CGFloat
     
     let pad: [[CalculatorButtonItem]] = [
@@ -43,7 +48,7 @@ struct CalculatorButtonPad: View {
     var body: some View {
         VStack(spacing: 8) {
             ForEach(pad, id: \.self) { row in
-                CalculatorButtonRow(brain: $brain, row: row, scale: scale)
+                CalculatorButtonRow(model: model, row: row, scale: scale)
             }
         }
     }
