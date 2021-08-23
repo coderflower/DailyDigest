@@ -14,11 +14,15 @@ struct ContentView: View {
     
     let scale: CGFloat = UIScreen.main.bounds.width / 428
 
+    @State private var editingHistory = false
+    
     var body: some View {
         VStack(spacing: 12) {
             Spacer()
             Button("操作履历: \(model.history.count)") {
-                debugPrint(self.model.history)
+                editingHistory = true
+            }.sheet(isPresented: $editingHistory) {
+                HistoryView(model: model)
             }
             Text(model.brain.output)
                 .font(.system(size: 76))

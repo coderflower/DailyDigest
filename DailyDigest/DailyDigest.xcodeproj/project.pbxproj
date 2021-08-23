@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		224A9A4526D3D57B009CBCA1 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A9A4426D3D57B009CBCA1 /* HistoryView.swift */; };
 		347BB4E826B8DE3F009EA81F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347BB4E726B8DE3F009EA81F /* AppDelegate.swift */; };
 		347BB4EA26B8DE3F009EA81F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347BB4E926B8DE3F009EA81F /* SceneDelegate.swift */; };
 		347BB4EC26B8DE3F009EA81F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347BB4EB26B8DE3F009EA81F /* ContentView.swift */; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		0BB9AE573CF9DA7F2476008A /* Pods_IGListKitDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IGListKitDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		224A9A4426D3D57B009CBCA1 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		347BB4E526B8DE3F009EA81F /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		347BB4E726B8DE3F009EA81F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		347BB4E926B8DE3F009EA81F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				347BB4F926B91783009EA81F /* CalculatorButton.swift */,
 				347BB4FB26B918BC009EA81F /* CalculatorButtonItem.swift */,
 				349CA1DB26CBCC7C009866D2 /* CalculatorModel.swift */,
+				224A9A4426D3D57B009CBCA1 /* HistoryView.swift */,
 				347BB4ED26B8DE41009EA81F /* Assets.xcassets */,
 				347BB4F226B8DE41009EA81F /* LaunchScreen.storyboard */,
 				347BB4F526B8DE41009EA81F /* Info.plist */,
@@ -489,6 +492,7 @@
 				347BB4E826B8DE3F009EA81F /* AppDelegate.swift in Sources */,
 				347BB4EA26B8DE3F009EA81F /* SceneDelegate.swift in Sources */,
 				349CA1DC26CBCC7C009866D2 /* CalculatorModel.swift in Sources */,
+				224A9A4526D3D57B009CBCA1 /* HistoryView.swift in Sources */,
 				347BB4FC26B918BC009EA81F /* CalculatorButtonItem.swift in Sources */,
 				347BB4EC26B8DE3F009EA81F /* ContentView.swift in Sources */,
 				347BB4FE26B91B3F009EA81F /* CalculatorButtonRow.swift in Sources */,
